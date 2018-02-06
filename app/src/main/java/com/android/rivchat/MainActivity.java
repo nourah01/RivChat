@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout = null;
     public static String STR_FRIEND_FRAGMENT = "FRIEND";
-    public static String STR_GROUP_FRAGMENT = "GROUP";
+    //public static String STR_MEASURE_FRAGMENT = "MEASURE";
+    public static String STR_GROUP_FRAGMENT = "GROUP";//***
     public static String STR_INFO_FRAGMENT = "INFO";
 
     private FloatingActionButton floatButton;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if(toolbar != null) {
             setSupportActionBar(toolbar);
-            getSupportActionBar().setTitle("RivChat");
+            getSupportActionBar().setTitle("SSM");
         }
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -118,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupTabIcons() {
         int[] tabIcons = {
                 R.drawable.ic_tab_person,
-                R.drawable.ic_tab_group,
+                R.drawable.ic_tab_group, //::::::chang to measur
                 R.drawable.ic_tab_infor
         };
 
@@ -130,7 +131,8 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new FriendsFragment(), STR_FRIEND_FRAGMENT);
-        adapter.addFrag(new GroupFragment(), STR_GROUP_FRAGMENT);
+        //adapter.addFrag(new MeasureFragment(), STR_MEASURE_FRAGMENT);
+        adapter.addFrag(new GroupFragment(), STR_GROUP_FRAGMENT);//********
         adapter.addFrag(new UserProfileFragment(), STR_INFO_FRAGMENT);
         floatButton.setOnClickListener(((FriendsFragment) adapter.getItem(0)).onClickFloatButton.getInstance(this));
         viewPager.setAdapter(adapter);
@@ -195,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.about) {
-            Toast.makeText(this, "Rivchat version 1.0", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Rivchat version 1.0", Toast.LENGTH_LONG).show(); //*****
             return true;
         }
 

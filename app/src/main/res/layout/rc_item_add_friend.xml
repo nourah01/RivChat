@@ -4,7 +4,7 @@
     android:layout_height="60dp"
     android:gravity="center"
     android:orientation="horizontal">
-
+//**WE DO NOT NEED THIS
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/icon_avata"
         android:layout_width="0dp"

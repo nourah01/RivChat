@@ -43,7 +43,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-
+/**************************** GET HISTORY *******************************/
 public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
     private RecyclerView recyclerListGroups;
     public FragGroupClickFloatButton onClickFloatButton;
@@ -96,12 +96,12 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         if(listGroup.size() == 0){
             //Ket noi server hien thi group
             mSwipeRefreshLayout.setRefreshing(true);
-            getListGroup();
+            //getListGroup();
         }
         return layout;
     }
 
-    private void getListGroup(){
+    /*private void getListGroup(){
         FirebaseDatabase.getInstance().getReference().child("user/"+ StaticConfig.UID+"/group").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -126,7 +126,7 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                 mSwipeRefreshLayout.setRefreshing(false);
             }
         });
-    }
+    }*/
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -135,7 +135,7 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
             listGroup.clear();
             ListGroupsAdapter.listFriend = null;
             GroupDB.getInstance(getContext()).dropDB();
-            getListGroup();
+            //getListGroup();
         }
     }
 
@@ -155,7 +155,7 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                             listGroup.get(indexGroup).member.add(idMember);
                         }
                         listGroup.get(indexGroup).groupInfo.put("name", (String) mapGroupInfo.get("name"));
-                        listGroup.get(indexGroup).groupInfo.put("admin", (String) mapGroupInfo.get("admin"));
+                        listGroup.get(indexGroup).groupInfo.put("admin", (String) mapGroupInfo.get("admin")); //****
                     }
                     GroupDB.getInstance(getContext()).addGroup(listGroup.get(indexGroup));
                     Log.d("GroupFragment", listGroup.get(indexGroup).id +": " + dataSnapshot.toString());
@@ -176,9 +176,9 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         ListGroupsAdapter.listFriend = null;
         GroupDB.getInstance(getContext()).dropDB();
         adapter.notifyDataSetChanged();
-        getListGroup();
+        //getListGroup();
     }
-
+/*
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
@@ -220,7 +220,7 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         }
 
         return super.onContextItemSelected(item);
-    }
+    }*/
 
     public void deleteGroup(final Group group, final int index){
         if(index == group.member.size()){

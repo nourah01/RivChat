@@ -42,6 +42,7 @@ import java.util.Set;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
+/**************************** MEASURE *******************************/
 
 public class AddGroupActivity extends AppCompatActivity {
 
@@ -90,6 +91,7 @@ public class AddGroupActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
+
 
             }
         });
