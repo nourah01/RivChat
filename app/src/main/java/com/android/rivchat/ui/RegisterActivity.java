@@ -114,6 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
                 cvAdd.setVisibility(View.INVISIBLE);
                 super.onAnimationEnd(animation);
                 fab.setImageResource(R.drawable.ic_signup);
+
                 RegisterActivity.super.onBackPressed();
             }
 

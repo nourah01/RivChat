@@ -50,6 +50,10 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseUser user;
     private boolean firstTimeAccess;
 
+    public void textClick(View v) {
+        Intent intent= new Intent(this,AddGroupActivity.class);
+        startActivity(intent);
+    }
     @Override
     protected void onStart() {
         super.onStart();
