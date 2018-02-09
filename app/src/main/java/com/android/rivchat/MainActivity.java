@@ -17,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.android.rivchat.ui.AddGroupActivity;
+import com.android.rivchat.ui.group;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.android.rivchat.data.StaticConfig;
@@ -202,6 +204,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void groupButton(View view) {
+            Intent intent= new Intent(this,group.class);
+            startActivity(intent);
+
     }
 
     /**

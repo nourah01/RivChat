@@ -45,9 +45,9 @@ import java.util.Iterator;
 
 /**************************** GET HISTORY *******************************/
 public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
-    private RecyclerView recyclerListGroups;
+   // private RecyclerView recyclerListGroups;
     public FragGroupClickFloatButton onClickFloatButton;
-    private ArrayList<Group> listGroup;
+   /* private ArrayList<Group> listGroup;
     private ListGroupsAdapter adapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     public static final int CONTEXT_MENU_DELETE = 1;
@@ -56,7 +56,7 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     public static final int REQUEST_EDIT_GROUP = 0;
     public static final String CONTEXT_MENU_KEY_INTENT_DATA_POS = "pos";
 
-    LovelyProgressDialog progressDialog, waitingLeavingGroup;
+    LovelyProgressDialog progressDialog, waitingLeavingGroup;*/
 
     public GroupFragment() {
         // Required empty public constructor
@@ -72,16 +72,16 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                              Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_group, container, false);
 
-        listGroup = GroupDB.getInstance(getContext()).getListGroups();
+       /* listGroup = GroupDB.getInstance(getContext()).getListGroups();
         recyclerListGroups = (RecyclerView) layout.findViewById(R.id.recycleListGroup);
         mSwipeRefreshLayout = (SwipeRefreshLayout) layout.findViewById(R.id.swipeRefreshLayout);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         recyclerListGroups.setLayoutManager(layoutManager);
         adapter = new ListGroupsAdapter(getContext(), listGroup);
-        recyclerListGroups.setAdapter(adapter);
+        recyclerListGroups.setAdapter(adapter);*/
         onClickFloatButton = new FragGroupClickFloatButton();
-        progressDialog = new LovelyProgressDialog(getContext())
+       /* progressDialog = new LovelyProgressDialog(getContext())
                 .setCancelable(false)
                 .setIcon(R.drawable.ic_dialog_delete_group)
                 .setTitle("Deleting....")
@@ -96,9 +96,14 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         if(listGroup.size() == 0){
             //Ket noi server hien thi group
             mSwipeRefreshLayout.setRefreshing(true);
-            //getListGroup();
-        }
+            getListGroup();
+        }*/
         return layout;
+    }
+
+    @Override
+    public void onRefresh() {
+
     }
 
     /*private void getListGroup(){
@@ -128,18 +133,18 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         });
     }*/
 
-    @Override
+   /* @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == REQUEST_EDIT_GROUP && resultCode == Activity.RESULT_OK) {
             listGroup.clear();
             ListGroupsAdapter.listFriend = null;
             GroupDB.getInstance(getContext()).dropDB();
-            //getListGroup();
+            getListGroup();
         }
-    }
+    }*/
 
-    private void getGroupInfo(final int indexGroup){
+    /*private void getGroupInfo(final int indexGroup){
         if(indexGroup == listGroup.size()){
             adapter.notifyDataSetChanged();
             mSwipeRefreshLayout.setRefreshing(false);
@@ -176,9 +181,9 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         ListGroupsAdapter.listFriend = null;
         GroupDB.getInstance(getContext()).dropDB();
         adapter.notifyDataSetChanged();
-        //getListGroup();
+        getListGroup();
     }
-/*
+
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
@@ -220,7 +225,7 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         }
 
         return super.onContextItemSelected(item);
-    }*/
+    }
 
     public void deleteGroup(final Group group, final int index){
         if(index == group.member.size()){
@@ -346,7 +351,7 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                     }
                 });
 
-    }
+    }*/
 
     public class FragGroupClickFloatButton implements View.OnClickListener{
 
@@ -362,7 +367,7 @@ public class GroupFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         }
     }
 }
-class ListGroupsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+/*class ListGroupsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<Group> listGroup;
     public static ListFriend listFriend = null;
@@ -426,9 +431,9 @@ class ListGroupsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public int getItemCount() {
         return listGroup.size();
     }
-}
+}*/
 
-class ItemGroupViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
+/*class ItemGroupViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
     public TextView iconGroup, txtGroupName;
     public ImageButton btnMore;
     public ItemGroupViewHolder(View itemView) {
@@ -448,4 +453,4 @@ class ItemGroupViewHolder extends RecyclerView.ViewHolder implements View.OnCrea
         menu.add(Menu.NONE, GroupFragment.CONTEXT_MENU_DELETE, Menu.NONE, "Delete group").setIntent(data);
         menu.add(Menu.NONE, GroupFragment.CONTEXT_MENU_LEAVE, Menu.NONE, "Leave group").setIntent(data);
     }
-}
+}*/

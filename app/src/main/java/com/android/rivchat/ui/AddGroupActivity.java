@@ -99,9 +99,9 @@ public class AddGroupActivity extends AppCompatActivity {
         btnAddGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (listIDChoose.size() < 3) {
+                /*if (listIDChoose.size() < 3) {
                     Toast.makeText(AddGroupActivity.this, "Add at lease two people to create group", Toast.LENGTH_SHORT).show();
-                } else {
+                } else {*/
                     if (editTextGroupName.getText().length() == 0) {
                         Toast.makeText(AddGroupActivity.this, "Enter group name", Toast.LENGTH_SHORT).show();
                     } else {
@@ -112,7 +112,7 @@ public class AddGroupActivity extends AppCompatActivity {
                         }
                     }
                 }
-            }
+            //}
         });
 
         if (intentData.getStringExtra("groupId") != null) {

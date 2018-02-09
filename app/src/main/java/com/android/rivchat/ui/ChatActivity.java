@@ -152,6 +152,10 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+    /*public void groupButton (View view) {
+        Intent intent= new Intent(this,group.class);
+        startActivity(intent);
+    }*/
 }
 
 class ListMessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

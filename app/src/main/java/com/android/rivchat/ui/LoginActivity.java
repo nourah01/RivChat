@@ -54,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent= new Intent(this,AddGroupActivity.class);
         startActivity(intent);
     }
+
     @Override
     protected void onStart() {
         super.onStart();
