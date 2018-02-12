@@ -18,7 +18,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.android.rivchat.ui.AddGroupActivity;
-import com.android.rivchat.ui.group;
+import com.android.rivchat.ui.MeasureFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.android.rivchat.data.StaticConfig;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout = null;
     public static String STR_FRIEND_FRAGMENT = "FRIEND";
-    //public static String STR_MEASURE_FRAGMENT = "MEASURE";
+    public static String STR_MEASURE_FRAGMENT = "MEASURE";
     public static String STR_GROUP_FRAGMENT = "GROUP";//***
     public static String STR_INFO_FRAGMENT = "INFO";
 
@@ -120,21 +120,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupTabIcons() {
         int[] tabIcons = {
+                R.drawable.ic_tab_measure,
                 R.drawable.ic_tab_person,
                 R.drawable.ic_tab_group, //::::::chang to measur
                 R.drawable.ic_tab_infor
         };
 
-        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
-        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
-        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+        tabLayout.getTabAt(0).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[2]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+
     }
 
     private void setupViewPager(ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new FriendsFragment(), STR_FRIEND_FRAGMENT);
-        //adapter.addFrag(new MeasureFragment(), STR_MEASURE_FRAGMENT);
         adapter.addFrag(new GroupFragment(), STR_GROUP_FRAGMENT);//********
+        adapter.addFrag(new MeasureFragment(), STR_MEASURE_FRAGMENT);
         adapter.addFrag(new UserProfileFragment(), STR_INFO_FRAGMENT);
         floatButton.setOnClickListener(((FriendsFragment) adapter.getItem(0)).onClickFloatButton.getInstance(this));
         viewPager.setAdapter(adapter);
@@ -152,9 +155,9 @@ public class MainActivity extends AppCompatActivity {
                     floatButton.setVisibility(View.VISIBLE);
                     floatButton.setOnClickListener(((FriendsFragment) adapter.getItem(position)).onClickFloatButton.getInstance(MainActivity.this));
                     floatButton.setImageResource(R.drawable.plus);
-                } else if (adapter.getItem(position) instanceof GroupFragment) {
+                } else if (adapter.getItem(position) instanceof MeasureFragment) {
                     floatButton.setVisibility(View.VISIBLE);
-                    floatButton.setOnClickListener(((GroupFragment) adapter.getItem(position)).onClickFloatButton.getInstance(MainActivity.this));
+                    floatButton.setOnClickListener(((MeasureFragment) adapter.getItem(position)).onClickFloatButton.getInstance(MainActivity.this));
                     floatButton.setImageResource(R.drawable.ic_float_add_group);
                 } else {
                     floatButton.setVisibility(View.GONE);
@@ -207,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void groupButton(View view) {
-            Intent intent= new Intent(this,group.class);
+            Intent intent= new Intent(this,GroupFragment.class);
             startActivity(intent);
 
     }

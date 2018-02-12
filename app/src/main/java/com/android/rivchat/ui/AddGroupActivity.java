@@ -374,4 +374,3 @@ class ItemFriendHolder extends RecyclerView.ViewHolder {
         checkBox = (CheckBox) itemView.findViewById(R.id.checkAddPeople);
     }
 }
-
