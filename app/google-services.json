@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "305789252153",
-    "firebase_url": "https://rivchat-ae05c.firebaseio.com",
-    "project_id": "rivchat-ae05c",
-    "storage_bucket": "rivchat-ae05c.appspot.com"
+    "project_number": "479857502774",
+    "firebase_url": "https://project-64d23.firebaseio.com",
+    "project_id": "project-64d23",
+    "storage_bucket": "project-64d23.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:305789252153:android:374b4af11ea6d701",
+        "mobilesdk_app_id": "1:479857502774:android:374b4af11ea6d701",
         "android_client_info": {
           "package_name": "com.hieuapp.rivchat"
         }
       },
       "oauth_client": [
         {
-          "client_id": "305789252153-8v6l9ma3n95fb94ms109jtvmkmubf06s.apps.googleusercontent.com",
+          "client_id": "479857502774-eft5f00gei668jje0ijfsg1umemjamon.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hieuapp.rivchat",
+            "certificate_hash": "7db2a168f249f90e5b7533ab4366f860a87d7e26"
+          }
+        },
+        {
+          "client_id": "479857502774-kilp750bv5fd5mbi80siahp9c41fc1da.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyArvh91tPNSoq4fGP4ymxZ5FbSypnogNGg"
+          "current_key": "AIzaSyCnMGbrj70saqOKI6Yr8kFA6bVJbWIUPZo"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "479857502774-kilp750bv5fd5mbi80siahp9c41fc1da.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
