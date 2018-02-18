@@ -143,11 +143,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/cv"
+        android:layout_alignParentEnd="true"
         android:onClick="textClick"
         android:text="SKIP"
         android:textColor="#32A1B5"
-        android:textSize="18sp"
+        android:textSize="12sp"
         android:textStyle="bold" />
 
 </RelativeLayout>
