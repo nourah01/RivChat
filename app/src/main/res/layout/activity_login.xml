@@ -27,7 +27,7 @@
                     android:layout_width="8dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
-                    android:background="#2fa881" />
+                    android:background="#32A1B5" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="50dp"
                     android:text="@string/login"
-                    android:textColor="#FFCC00"
+                    android:textColor="#AAD6D3"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -61,7 +61,9 @@
                         android:hint="@string/Username"
                         android:inputType="textEmailAddress"
                         android:paddingBottom="2dp"
-                        android:textColor="#2fa881"
+                        android:textColor="#32A1B5"
+                        android:textColorHint="#32A1B5"
+                        android:textColorLink="#32A1B5"
                         android:textCursorDrawable="@drawable/bg_input_cursor"
                         android:textSize="13sp" />
                 </android.support.design.widget.TextInputLayout>
@@ -87,7 +89,7 @@
                         android:hint="@string/Password"
                         android:inputType="textPassword"
                         android:paddingBottom="10dp"
-                        android:textColor="#2fa881"
+                        android:textColor="#32A1B5"
                         android:textCursorDrawable="@drawable/bg_input_cursor"
                         android:textSize="13sp" />
                 </android.support.design.widget.TextInputLayout>
@@ -103,11 +105,11 @@
                     android:id="@+id/bt_go"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/bt_shape"
+                    android:background="#AAD6D3"
                     android:onClick="clickLogin"
                     android:stateListAnimator="@drawable/state_list_animator_z"
                     android:text="@string/go"
-                    android:textColor="#d3d3d3" />
+                    android:textColor="@color/colorAccent" />
             </RelativeLayout>
 
             <TextView
@@ -133,6 +135,7 @@
         android:onClick="clickRegisterLayout"
         android:src="@drawable/ic_signup"
         android:transitionName="loginFab"
+        app:backgroundTint="#32A1B5"
         app:fabSize="normal" />
 
     <TextView
@@ -143,7 +146,7 @@
         android:layout_toEndOf="@+id/cv"
         android:onClick="textClick"
         android:text="SKIP"
-        android:textColor="@color/colorCardView"
+        android:textColor="#32A1B5"
         android:textSize="18sp"
         android:textStyle="bold" />
 

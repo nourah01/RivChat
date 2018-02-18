@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if(toolbar != null) {
             setSupportActionBar(toolbar);
-            getSupportActionBar().setTitle("SSM");
+            getSupportActionBar().setTitle("Stress Management");
         }
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.about) {
-            Toast.makeText(this, "Rivchat version 1.0", Toast.LENGTH_LONG).show(); //*****
+            Toast.makeText(this, "Stress Management version 1.0", Toast.LENGTH_LONG).show(); //*****
             return true;
         }
 

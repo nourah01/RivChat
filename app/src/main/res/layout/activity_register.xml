@@ -25,6 +25,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="#32A1B5"
                 android:orientation="vertical">
 
                 <TextView
@@ -127,10 +128,10 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/bt_shape_2"
+                    android:onClick="clickRegister"
                     android:stateListAnimator="@drawable/state_list_animator_z"
                     android:text="@string/go"
-                    android:textColor="#2fa881"
-                    android:onClick="clickRegister"/>
+                    android:textColor="#32A1B5" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -143,6 +144,7 @@
             android:onClick="clickBackLogin"
             android:src="@drawable/plus_x"
             android:transitionName="loginFab"
+            app:backgroundTint="#32A1B5"
             app:fabSize="normal" />
     </FrameLayout>
 
