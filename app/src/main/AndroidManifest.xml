@@ -26,7 +26,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
@@ -47,7 +47,8 @@
             android:exported="false"
             android:persistent="true" />
 
-
+        <activity android:name=".ui.technique" />
+        <activity android:name=".ui.measurementres"></activity>
     </application>
 
 </manifest>

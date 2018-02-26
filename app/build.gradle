@@ -9,7 +9,7 @@ android {
             storePassword '123456a@'
         }
     }
-    compileSdkVersion 24
+    compileSdkVersion 26
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId 'com.hieuapp.rivchat'
@@ -53,7 +53,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:11.8.0'
     implementation 'com.google.firebase:firebase-database:11.8.0'
     implementation 'com.google.firebase:firebase-auth:11.8.0'
-    compile 'com.android.support:design:24.2.1'
+    compile 'com.android.support:design:26.1.0'
     //compile 'com.google.firebase:firebase-core:9.8.0'
     //compile 'com.google.firebase:firebase-database:9.8.0'
     //compile 'com.google.firebase:firebase-auth:9.8.0'
