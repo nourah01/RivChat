@@ -19,12 +19,6 @@ package com.android.rivchat.ui;
         import java.util.ArrayList;
         import android.widget.Toast;
 
-
-
-
-
-
-
 /**
  * Created by - on 2/12/2018.
  */
