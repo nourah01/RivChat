@@ -2,7 +2,6 @@ package com.android.rivchat.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.bluetooth.BluetoothAdapter;
@@ -17,23 +16,32 @@ import java.io.InputStream;
 import java.util.Set;
 import java.util.UUID;
 import android.os.CountDownTimer;
-
-import com.android.rivchat.MainActivity;
 import com.android.rivchat.R;
 import com.android.rivchat.data.measurementDB;
-import com.android.rivchat.model.User;
 import com.android.rivchat.model.measurement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.TextView;
+//import android.widget.EditText;
+import android.widget.Button;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Set;
+import java.util.UUID;
+import android.os.CountDownTimer;
 import android.widget.Toast;
 
 
-
-
-/**************************** MEASURE *******************************/
-
-public class AddGroupActivity extends Activity {
+public class gustmesure extends Activity {
     TextView myLabel;
     TextView down ;
     TextView warn;
@@ -51,12 +59,10 @@ public class AddGroupActivity extends Activity {
     measurementDB db;
     Calendar calander;
     SimpleDateFormat simpledateformat;
-    UserProfileFragment usremail;
-   static String Email;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_group);
+        setContentView(R.layout.activity_gustmesure);
         Button openButton = (Button)findViewById(R.id.open);
         db=new measurementDB(this);
         myLabel = (TextView)findViewById(R.id.label);
@@ -143,19 +149,9 @@ public class AddGroupActivity extends Activity {
                     e.printStackTrace();
                 }
                 ///// add database
-                calander = Calendar.getInstance();
-                simpledateformat = new SimpleDateFormat("dd-MM-yyyy                                HH:mm:ss");
-                date_time = simpledateformat.format(calander.getTime());
-                Email= MainActivity.currentuseremail;
-                measurement measurement_to_add=new measurement(Email,data,date_time+"","  " );
-                Boolean RESULT= db.insertData(measurement_to_add);
-                if (RESULT==true) {
-                    startActivity(new Intent(AddGroupActivity.this, measurementres.class));
-                    AddGroupActivity.this.finish();
-        }else {
-            Toast.makeText(AddGroupActivity.this, "NO", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(gustmesure.this, gust_measurment_result.class));
+                    gustmesure.this.finish();
 
-        }
 
             }
         }.start();
@@ -224,7 +220,6 @@ public class AddGroupActivity extends Activity {
     public static String returndata(){
         return  data;
     }
-
 
 
 }

@@ -9,11 +9,13 @@ package com.android.rivchat.ui;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+
+        import com.android.rivchat.MainActivity;
         import com.android.rivchat.R;
         import android.widget.ArrayAdapter;
         import android.widget.EditText;
-        import com.android.rivchat.data.historyDB;
-        import com.android.rivchat.model.history;
+        import com.android.rivchat.data.measurementDB;
+        import com.android.rivchat.model.User;
         import android.widget.ListView;
         import android.widget.Button;
         import java.util.ArrayList;
@@ -27,9 +29,8 @@ public class MeasureFragment extends Fragment {
     public MeasureFragment.FragGroupClickFloatButton onClickFloatButton;
     public EditText ID;
     ListView lst;
-
+    static String email;
     public boolean find=false;
-    public boolean findid=false;
     public MeasureFragment() {
         // Required empty public constructor
     }
@@ -47,14 +48,7 @@ public class MeasureFragment extends Fragment {
 
         ID=(EditText) layout.findViewById(R.id.editText);
         lst=(ListView) layout.findViewById(R.id.listView_data);
-
-        historyDB db=new historyDB(getActivity());
-        history h=new history("shaimaa","2-13-2018","i was tired" );
-        history h2=new history("test","2-13-2018" ,"i was tired and sad");
-
-        Boolean RESULT= db.insertData(h);
-        Boolean RESULT2= db.insertData(h2);
-
+        email=MainActivity.currentuseremail;
         showData();
 
        /* if (RESULT==true) {
@@ -70,38 +64,33 @@ public class MeasureFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String id=ID.getText().toString();
-                historyDB db=new historyDB(getActivity());
+                measurementDB db=new measurementDB(getActivity());
                 ArrayList<String> lisdata=db.getAllid();
-                if(lisdata.isEmpty()) {
-                    Toast.makeText(getActivity(), "NO history to delete", Toast.LENGTH_SHORT).show();                }
-                if(id.isEmpty()) {
-                    Toast.makeText(getActivity(), "Enter id to delete", Toast.LENGTH_SHORT).show();
-                    findid=true;}
 
+                if(lisdata.isEmpty()) {
+                    Toast.makeText(getActivity(), "NO history to delete", Toast.LENGTH_SHORT).show();}
+                else { if(id.isEmpty()) {
+                    Toast.makeText(getActivity(), "Enter id to delete", Toast.LENGTH_SHORT).show();}
+                    else {
                     for(int i=0;i<lisdata.size();i++) {
-                    if(lisdata.remove(i).equals(id)) {
+                    if(lisdata.get(i).equals(id)) {
                         Integer result=db.DeleteData(id);
                         showData();
                         find=true;
                         break;
-                    }
-
-                            }
-            if(find==false | findid==false)
-                Toast.makeText(getActivity(), "Id not exist", Toast.LENGTH_SHORT).show();                }
-
-
-        });
+                    } } } }
+                if(find==false)
+                    Toast.makeText(getActivity(), "Id not exist", Toast.LENGTH_SHORT).show();  }});
 
         Button b2 = (Button) layout.findViewById(R.id.button3);
+
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                historyDB db=new historyDB(getActivity());
+                measurementDB db=new measurementDB(getActivity());
                 db.DeleteAllData();
                 showData();
-                startActivity(new Intent(getActivity(), measurementres.class));
-                getActivity().finish();}
+                }
         });
 
         return layout;
@@ -111,8 +100,8 @@ public class MeasureFragment extends Fragment {
 
 
     public void showData() {
-        historyDB db=new historyDB(getActivity());
-        ArrayList<String> lisdata=db.getAllrecords();
+        measurementDB db=new measurementDB(getActivity());
+        ArrayList<String> lisdata=db.getAllrecords(email);
         ArrayAdapter arrayAdapter=new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1,lisdata);
         lst.setAdapter(arrayAdapter);
     }
@@ -130,4 +119,6 @@ public class MeasureFragment extends Fragment {
             startActivity(new Intent(getContext(), AddGroupActivity.class));
         }
     }
+
+
 }

@@ -1,5 +1,6 @@
 package com.android.rivchat.ui;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
@@ -49,9 +50,9 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseUser user;
     private boolean firstTimeAccess;
-
+//here
     public void textClick(View v) {
-        Intent intent= new Intent(this,AddGroupActivity.class);
+        Intent intent= new Intent(this,gustmesure.class);
         startActivity(intent);
     }
 
@@ -111,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("RestrictedApi")
     public void clickRegisterLayout(View view) {
         getWindow().setExitTransition(null);
         getWindow().setEnterTransition(null);

@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseUser user;
+    public static String currentuseremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
+        currentuseremail=mAuth.getCurrentUser().getEmail();
         ServiceUtils.stopServiceFriendChat(getApplicationContext(), false);
     }
 

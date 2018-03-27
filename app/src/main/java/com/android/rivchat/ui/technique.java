@@ -1,32 +1,80 @@
 package com.android.rivchat.ui;
 
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
-import com.android.rivchat.Manifest;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.android.rivchat.model.imageUpload;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 import com.android.rivchat.R;
 
+
 public class technique extends AppCompatActivity {
-    final  int req=999;
-Button btn4;
-ImageView myimg;
+    private StorageReference mStorageRef;
+    private DatabaseReference mDatabaseRef;
+    private List<imageUpload> imgList;
+    private ListView lv;
+    private ProgressDialog progressDialog;
+    private ImageView iv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technique);
-        btn4=(Button)findViewById(R.id.button4);
-        myimg=(ImageView)findViewById(R.id.imageView5);
-     /*   btn4.setOnClickListener(new View.OnClickListener() {
+        iv=(ImageView)findViewById(R.id.imgView);
+        final TextView tvName = (TextView) findViewById(R.id.tvImageName);
+
+        imgList = new ArrayList<>();
+        //Show progress dialog during list image loading
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Waiting for technique ...");
+        progressDialog.show();
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(admin.FB_DATABASE_PATH);
+
+        mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                ActivityCompat.requestPermissions(technique.this,
-           //             new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                    //    100
-                        );
-                         }
-     }); */
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                progressDialog.dismiss();
+
+                //Fetch image data from firebase database
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    //ImageUpload class require default constructor
+                    imageUpload img = snapshot.getValue(imageUpload.class);
+                    imgList.add(img);
+                }
+                int size=imgList.size();
+                Random r = new Random();
+                int Low = 0;
+                int High = size;
+                int Result = r.nextInt(High-Low) + Low;
+                // Load the image using Picasso
+                tvName.setText(imgList.get(Result).getName());
+                Picasso.with(getApplicationContext()).load(imgList.get(Result).getUrl()).into(iv);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+                progressDialog.dismiss();
+            }
+        });
+
     }
+
+
 }
+

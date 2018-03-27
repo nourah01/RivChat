@@ -20,4 +20,5 @@ public class User {
         message.text = "";
         message.timestamp = 0;
     }
+
 }
