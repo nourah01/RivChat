@@ -20,6 +20,12 @@
         android:onClick="btnBrowse_Click"
         android:text="Browse image to upload" />
 
+    <VideoView
+        android:id="@+id/vidView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"  />
+
     <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"

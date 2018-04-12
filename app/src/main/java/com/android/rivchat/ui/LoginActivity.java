@@ -165,6 +165,11 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    public void admin(View view) {
+        startActivity(new Intent(this, adminlogin.class));
+
+    }
+
     /**
      * Dinh nghia cac ham tien ich cho quas trinhf dang nhap, dang ky,...
      */

@@ -2,12 +2,11 @@ package com.android.rivchat.ui;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.android.rivchat.R;
 import com.android.rivchat.model.imageUpload;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,10 +15,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
-import java.util.Random;
+
 import java.util.ArrayList;
 import java.util.List;
-import com.android.rivchat.R;
+import java.util.Random;
 
 
 public class technique extends AppCompatActivity {
@@ -34,7 +33,7 @@ public class technique extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technique);
         iv=(ImageView)findViewById(R.id.imgView);
-        final TextView tvName = (TextView) findViewById(R.id.tvImageName);
+       // final TextView tvName = (TextView) findViewById(R.id.tvImageName);
 
         imgList = new ArrayList<>();
         //Show progress dialog during list image loading
@@ -61,7 +60,7 @@ public class technique extends AppCompatActivity {
                 int High = size;
                 int Result = r.nextInt(High-Low) + Low;
                 // Load the image using Picasso
-                tvName.setText(imgList.get(Result).getName());
+                //tvName.setText(imgList.get(Result).getName());
                 Picasso.with(getApplicationContext()).load(imgList.get(Result).getUrl()).into(iv);
 
             }

@@ -3,23 +3,23 @@ package com.android.rivchat.ui;
 
 
         import android.content.Context;
-        import android.content.Intent;
-        import android.support.v4.app.Fragment;
-        import android.os.Bundle;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 
-        import com.android.rivchat.MainActivity;
-        import com.android.rivchat.R;
-        import android.widget.ArrayAdapter;
-        import android.widget.EditText;
-        import com.android.rivchat.data.measurementDB;
-        import com.android.rivchat.model.User;
-        import android.widget.ListView;
-        import android.widget.Button;
-        import java.util.ArrayList;
-        import android.widget.Toast;
+import com.android.rivchat.MainActivity;
+import com.android.rivchat.R;
+import com.android.rivchat.data.measurementDB;
+
+import java.util.ArrayList;
 
 /**
  * Created by - on 2/12/2018.
@@ -50,13 +50,6 @@ public class MeasureFragment extends Fragment {
         lst=(ListView) layout.findViewById(R.id.listView_data);
         email=MainActivity.currentuseremail;
         showData();
-
-       /* if (RESULT==true) {
-            Toast.makeText(GroupFragment.this, "OK", Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(GroupFragment.this, "NO", Toast.LENGTH_SHORT).show();
-
-        }*/
 
         Button b = (Button) layout.findViewById(R.id.button2);
 

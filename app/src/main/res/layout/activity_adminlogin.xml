@@ -37,7 +37,8 @@
                     android:text="@string/login"
                     android:textColor="#AAD6D3"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:id="@+id/textView5" />
             </RelativeLayout>
 
             <LinearLayout
@@ -112,53 +113,7 @@
                     android:textColor="@color/colorAccent" />
             </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dp"
-                android:onClick="clickResetPassword"
-                android:text="@string/forgot_your_password"
-                android:textColor="#9a9a9a"
-                android:textSize="12sp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/cv"
-        android:layout_alignTop="@id/cv"
-        android:layout_marginEnd="-20dp"
-        android:layout_marginTop="25dp"
-        android:onClick="clickRegisterLayout"
-        android:src="@drawable/ic_signup"
-        android:transitionName="loginFab"
-        app:backgroundTint="#32A1B5"
-        app:fabSize="normal" />
-
-    <TextView
-        android:id="@+id/SKIP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="textClick"
-        android:text="SKIP"
-        android:textColor="#32A1B5"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/SKIP4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:onClick="admin"
-        android:text="Admin"
-        android:textColor="#32A1B5"
-        android:textSize="12sp"
-        android:textStyle="bold" />
 
 </RelativeLayout>

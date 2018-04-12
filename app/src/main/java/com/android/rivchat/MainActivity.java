@@ -12,21 +12,20 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
-import com.android.rivchat.ui.AddGroupActivity;
-import com.android.rivchat.ui.MeasureFragment;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.android.rivchat.data.StaticConfig;
 import com.android.rivchat.service.ServiceUtils;
 import com.android.rivchat.ui.FriendsFragment;
 import com.android.rivchat.ui.GroupFragment;
 import com.android.rivchat.ui.LoginActivity;
+import com.android.rivchat.ui.MeasureFragment;
 import com.android.rivchat.ui.UserProfileFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout = null;
     public static String STR_FRIEND_FRAGMENT = "FRIEND";
     public static String STR_MEASURE_FRAGMENT = "MEASURE";
-    public static String STR_GROUP_FRAGMENT = "GROUP";//***
+    //public static String STR_GROUP_FRAGMENT = "GROUP";//***
     public static String STR_INFO_FRAGMENT = "INFO";
 
     private FloatingActionButton floatButton;
@@ -124,21 +123,21 @@ public class MainActivity extends AppCompatActivity {
         int[] tabIcons = {
                 R.drawable.ic_tab_measure,
                 R.drawable.ic_tab_person,
-                R.drawable.ic_tab_group, //::::::chang to measur
+                //R.drawable.ic_tab_group, //::::::chang to measur
                 R.drawable.ic_tab_infor
         };
 
         tabLayout.getTabAt(0).setIcon(tabIcons[1]);
-        tabLayout.getTabAt(1).setIcon(tabIcons[2]);
-        tabLayout.getTabAt(2).setIcon(tabIcons[0]);
-        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[0]);
+        //tabLayout.getTabAt(3).setIcon(tabIcons[3]);
 
     }
 
     private void setupViewPager(ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new FriendsFragment(), STR_FRIEND_FRAGMENT);
-        adapter.addFrag(new GroupFragment(), STR_GROUP_FRAGMENT);//********
+       // adapter.addFrag(new GroupFragment(), STR_GROUP_FRAGMENT);//********
         adapter.addFrag(new MeasureFragment(), STR_MEASURE_FRAGMENT);
         adapter.addFrag(new UserProfileFragment(), STR_INFO_FRAGMENT);
         floatButton.setOnClickListener(((FriendsFragment) adapter.getItem(0)).onClickFloatButton.getInstance(this));

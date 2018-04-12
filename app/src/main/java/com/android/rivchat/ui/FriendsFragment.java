@@ -22,8 +22,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.rivchat.data.measurementDB;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -142,7 +145,13 @@ public class FriendsFragment extends Fragment implements SwipeRefreshLayout.OnRe
 
         IntentFilter intentFilter = new IntentFilter(ACTION_DELETE_FRIEND);
         getContext().registerReceiver(deleteFriendReceiver, intentFilter);
+        Button b = (Button) layout.findViewById(R.id.button7);
 
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), chatroocatog.class));
+            }});
         return layout;
     }
 
@@ -170,6 +179,9 @@ public class FriendsFragment extends Fragment implements SwipeRefreshLayout.OnRe
         detectFriendOnline.cancel();
         getListFriendUId();
     }
+
+
+
 
     public class FragFriendClickFloatButton implements View.OnClickListener {
         Context context;

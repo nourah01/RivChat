@@ -14,6 +14,9 @@ import android.webkit.MimeTypeMap;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.VideoView;
+
+import com.android.rivchat.R;
 import com.android.rivchat.model.imageUpload;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,14 +30,14 @@ import com.google.firebase.storage.UploadTask;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import com.android.rivchat.R;
-
 public class admin extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private ImageView imageView;
+    private VideoView vidView;
     private EditText txtImageName;
     private Uri imgUri;
+    private Uri vidUri;
 
 
     public static final String FB_STORAGE_PATH = "image/";
@@ -46,24 +49,29 @@ public class admin extends AppCompatActivity {
         setContentView(R.layout.activity_admin);
         mStorageRef = FirebaseStorage.getInstance().getReference();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
-
         imageView = (ImageView) findViewById(R.id.imageView);
+        vidView = (VideoView) findViewById(R.id.vidView);
+        imageView.setVisibility(View.GONE);
+        vidView.setVisibility(View.GONE);
         txtImageName = (EditText) findViewById(R.id.txtImageName);
     }
+
 
 
     public void btnBrowse_Click(View v) {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select image"), REQUEST_CODE);
+        startActivityForResult(Intent.createChooser(intent, "Select image"), 1);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imgUri = data.getData();
+            vidView.setVisibility(View.GONE);
+            imageView.setVisibility(View.VISIBLE);
 
             try {
                 Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(), imgUri);
@@ -73,6 +81,14 @@ public class admin extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        else if (requestCode == 2 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            imgUri = data.getData();
+            imageView.setVisibility(View.GONE);
+            vidView.setVisibility(View.VISIBLE);
+            vidUri = data.getData();
+            vidView.setVideoURI(vidUri);
+            vidView.start();
         }
     }
 
@@ -137,7 +153,10 @@ public class admin extends AppCompatActivity {
         }
     }
     public void btnBrowsev_Click(View view) {
-        //startActivity(new Intent(admin.this, vedio.class));
+        Intent intent = new Intent();
+        intent.setType("video/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select video"), 2);
 
     }
 }

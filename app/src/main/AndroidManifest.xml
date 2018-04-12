@@ -53,7 +53,22 @@
         <activity android:name=".ui.measurementres" />
         <activity android:name=".ui.admin" />
         <activity android:name=".ui.gustmesure" />
-        <activity android:name=".ui.gust_measurment_result"></activity>
+        <activity android:name=".ui.gust_measurment_result" />
+        <activity android:name=".ui.adminlogin" />
+        <activity android:name=".ui.chatroocatog"></activity>
+        <activity android:name=".ui.Chatroom"></activity>
+
+
+        <service
+            android:name=".FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_launcher" />
+
     </application>
 
 </manifest>
