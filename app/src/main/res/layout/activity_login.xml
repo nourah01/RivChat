@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background= "@drawable/bg">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cv"
@@ -27,7 +28,7 @@
                     android:layout_width="8dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
-                    android:background="#32A1B5" />
+                    android:background="#56a4c4" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -35,7 +36,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="50dp"
                     android:text="@string/login"
-                    android:textColor="#AAD6D3"
+                    android:textColor="#aabed6"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -61,9 +62,9 @@
                         android:hint="@string/Username"
                         android:inputType="textEmailAddress"
                         android:paddingBottom="2dp"
-                        android:textColor="#32A1B5"
-                        android:textColorHint="#32A1B5"
-                        android:textColorLink="#32A1B5"
+                        android:textColor="#56a4c4"
+                        android:textColorHint="#56a4c4"
+                        android:textColorLink="#56a4c4"
                         android:textCursorDrawable="@drawable/bg_input_cursor"
                         android:textSize="13sp" />
                 </android.support.design.widget.TextInputLayout>
@@ -89,7 +90,7 @@
                         android:hint="@string/Password"
                         android:inputType="textPassword"
                         android:paddingBottom="10dp"
-                        android:textColor="#32A1B5"
+                        android:textColor="#56a4c4"
                         android:textCursorDrawable="@drawable/bg_input_cursor"
                         android:textSize="13sp" />
                 </android.support.design.widget.TextInputLayout>
@@ -105,11 +106,11 @@
                     android:id="@+id/bt_go"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
-                    android:background="#AAD6D3"
+                    android:background="#FFEFEFEF"
                     android:onClick="clickLogin"
                     android:stateListAnimator="@drawable/state_list_animator_z"
                     android:text="@string/go"
-                    android:textColor="@color/colorAccent" />
+                    android:textColor="#56a4c4" />
             </RelativeLayout>
 
             <TextView
@@ -135,30 +136,34 @@
         android:onClick="clickRegisterLayout"
         android:src="@drawable/ic_signup"
         android:transitionName="loginFab"
-        app:backgroundTint="#32A1B5"
+        app:backgroundTint="#56a4c4"
         app:fabSize="normal" />
 
     <TextView
         android:id="@+id/SKIP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignBaseline="@+id/SKIP4"
+        android:layout_alignBottom="@+id/SKIP4"
+        android:layout_alignEnd="@+id/fab"
         android:onClick="textClick"
-        android:text="SKIP"
-        android:textColor="#32A1B5"
-        android:textSize="12sp"
+        android:text="Skip"
+        android:textColor="#56a4c4"
+        android:textSize="14sp"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/SKIP4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp"
+        android:layout_marginStart="23dp"
         android:onClick="admin"
         android:text="Admin"
-        android:textColor="#32A1B5"
-        android:textSize="12sp"
+        android:textColor="#56a4c4"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
 </RelativeLayout>

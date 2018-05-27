@@ -38,6 +38,7 @@ public class chatroocatog extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     String name;
     EditText ee;
+    String ees=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,13 +83,16 @@ public class chatroocatog extends AppCompatActivity {
         l1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if((ees.toString()).equals("")){
+                    request_username();
+                }
+                else {
 
-
-                Intent intent = new Intent(chatroocatog.this, Chatroom.class);
-                intent.putExtra("room_name", ((TextView) view).getText().toString());
-                intent.putExtra("user_name", name);
-                startActivity(intent);
-
+                    Intent intent = new Intent(chatroocatog.this, Chatroom.class);
+                    intent.putExtra("room_name", ((TextView) view).getText().toString());
+                    intent.putExtra("user_name", name);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -102,9 +106,11 @@ public class chatroocatog extends AppCompatActivity {
         builder.setTitle("Enter your name?");
         ee = new EditText(this);
         builder.setView(ee);
+        ees=ee.getText().toString();
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                ees=ee.getText().toString();
                 name = ee.getText().toString();
 
 

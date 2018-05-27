@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     floatButton.setVisibility(View.VISIBLE);
                     floatButton.setOnClickListener(((MeasureFragment) adapter.getItem(position)).onClickFloatButton.getInstance(MainActivity.this));
                     floatButton.setImageResource(R.drawable.ic_float_add_group);
+
                 } else {
                     floatButton.setVisibility(View.GONE);
                 }

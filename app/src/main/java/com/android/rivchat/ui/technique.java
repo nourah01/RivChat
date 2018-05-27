@@ -1,10 +1,13 @@
 package com.android.rivchat.ui;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.rivchat.R;
 import com.android.rivchat.model.imageUpload;
@@ -33,9 +36,10 @@ public class technique extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_technique);
         iv=(ImageView)findViewById(R.id.imgView);
-       // final TextView tvName = (TextView) findViewById(R.id.tvImageName);
+        // final TextView tvName = (TextView) findViewById(R.id.tvImageName);
 
         imgList = new ArrayList<>();
+        imgList.clear();
         //Show progress dialog during list image loading
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Waiting for technique ...");
@@ -57,8 +61,13 @@ public class technique extends AppCompatActivity {
                 int size=imgList.size();
                 Random r = new Random();
                 int Low = 0;
-                int High = size;
-                int Result = r.nextInt(High-Low) + Low;
+                int High = size-1;
+               // Toast.makeText(technique.this, size+"", Toast.LENGTH_SHORT).show();
+
+                int Result;
+                if(size>1)
+                Result =r.nextInt(High-Low) + Low;
+                else Result=0;
                 // Load the image using Picasso
                 //tvName.setText(imgList.get(Result).getName());
                 Picasso.with(getApplicationContext()).load(imgList.get(Result).getUrl()).into(iv);
@@ -75,5 +84,9 @@ public class technique extends AppCompatActivity {
     }
 
 
+    public void get(View view) {
+        startActivity(new Intent(technique.this, technique.class));
+        technique.this.finish();
+    }
 }
 

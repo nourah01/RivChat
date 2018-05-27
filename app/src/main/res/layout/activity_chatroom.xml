@@ -3,20 +3,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/low"
     tools:context="com.android.rivchat.ui.Chatroom">
 
-
-    <Button
+    <ImageButton
+        android:id="@+id/button2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="#00000000"
+        android:padding="10dp"
+        android:onClick="send"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_send" />
+ <!--   <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:background="#32A1B5"
-
+        android:background="#dfdfdf"
+        android:textColor="#56a4c4"
         android:onClick="send"
-        android:text="Send" />
+        android:text="Send" />-->
+    <!--
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="#00000000"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_send" />
+
+        ask nourah
+    -->
 
     <EditText
         android:layout_width="wrap_content"
@@ -41,8 +64,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/background_dark"
-            android:textSize="24sp"
+            android:textColor="#FF10235B"
+            android:textSize="15sp"
             android:textStyle="bold" />
     </ScrollView>
 </RelativeLayout>

@@ -61,7 +61,7 @@ public class measurementDB extends SQLiteOpenHelper {
             String s2=res.getString(2);
             String s3=res.getString(3);
             String s4=res.getString(4);
-            arrayList.add("ID:"+s1+"\n   "+s2+"\n   Heart bate rate: "+s3+"\n   NOTE:"+s4);
+            arrayList.add("ID:"+s1+"-\n   "+s2+"\n   Heart bate rate: "+s3+"\n   NOTE:"+s4);
             res.moveToNext();
 
         }

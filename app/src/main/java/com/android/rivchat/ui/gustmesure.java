@@ -1,5 +1,6 @@
 package com.android.rivchat.ui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -44,7 +45,7 @@ import android.widget.Toast;
 public class gustmesure extends Activity {
     TextView myLabel;
     TextView down ;
-    TextView warn;
+    TextView warn,t;
     BluetoothAdapter mBluetoothAdapter;
     BluetoothSocket mmSocket;
     BluetoothDevice mmDevice;
@@ -68,7 +69,26 @@ public class gustmesure extends Activity {
         myLabel = (TextView)findViewById(R.id.label);
         down = (TextView) findViewById(R.id.countDown) ;
         warn = (TextView) findViewById(R.id.warn) ;
+        t=(TextView) findViewById(R.id.textView7) ;
+        final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("Make sure that  bluetooth is open & connected to the device");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
 
+
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+
+
+            }
+        });
+        builder.show();
         //Open Button
         openButton.setOnClickListener(new View.OnClickListener()
         {
@@ -76,6 +96,7 @@ public class gustmesure extends Activity {
             {
                 try
                 {
+                    t.setVisibility(View.GONE);
                     findBT();
                     openBT();
                     warn.setVisibility(View.GONE);
@@ -128,7 +149,7 @@ public class gustmesure extends Activity {
         View b = findViewById(R.id.open);
         b.setVisibility(View.GONE);
         beginListenForData();
-        new CountDownTimer(5000, 1000) {
+        new CountDownTimer(60000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 down.setText("seconds remaining: " + millisUntilFinished / 1000);

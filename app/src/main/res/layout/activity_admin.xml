@@ -1,46 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/low"
+    android:baselineAligned="false"
     android:orientation="vertical"
     tools:context="com.android.rivchat.ui.admin">
 
-    <Button
-        android:layout_width="match_parent"
+
+  <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="292dp"
+        android:layout_height="300dp"
+        android:layout_alignStart="@+id/vidView"
+        android:layout_below="@+id/textInputLayout"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498"
+        tools:ignore="UnknownId" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="236dp"
         android:layout_height="wrap_content"
-        android:onClick="btnBrowsev_Click"
-        android:text="Browse vedio to upload" />
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColorHint="#c5c5c5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.076">
+
+
+      <EditText
+          android:id="@+id/txtImageName"
+          android:layout_width="204dp"
+          android:layout_height="29dp"
+          android:layout_gravity="center"
+          android:background="@drawable/selector_bg_edit"
+          android:hint="Enter the name of image"
+          android:paddingBottom="2dp"
+          android:textColor="#56a4c4"
+          android:textColorHint="#56a4c4"
+          android:textCursorDrawable="@drawable/bg_input_cursor"
+          android:textSize="14sp"
+          />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+
+
+
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="127dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/vidView"
+        android:layout_below="@+id/imageView"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#dfdfdf"
         android:onClick="btnBrowse_Click"
-        android:text="Browse image to upload" />
+        android:paddingBottom="1dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="10dp"
+        android:paddingTop="1dp"
+        android:text="Browse image"
+        android:textColor="#56a4c4"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.952"
+        tools:ignore="UnknownId" />
 
-    <VideoView
-        android:id="@+id/vidView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"  />
-
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:id="@+id/imageView"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtImageName"
-        android:hint="Image name"/>
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/button5"
+        android:layout_width="127dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignEnd="@+id/vidView"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="8dp"
+        android:background="#dfdfdf"
+        android:onClick="btnUpload_Click"
+        android:paddingBottom="1dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="10dp"
+        android:paddingTop="1dp"
         android:text="Upload image"
-        android:onClick="btnUpload_Click"/>
+        android:textColor="#56a4c4"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.952"
+        tools:ignore="UnknownId" />
 
-
-</LinearLayout>
+  </android.support.constraint.ConstraintLayout>
+</RelativeLayout>

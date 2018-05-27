@@ -34,10 +34,9 @@ public class admin extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private ImageView imageView;
-    private VideoView vidView;
     private EditText txtImageName;
     private Uri imgUri;
-    private Uri vidUri;
+
 
 
     public static final String FB_STORAGE_PATH = "image/";
@@ -50,9 +49,7 @@ public class admin extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_PATH);
         imageView = (ImageView) findViewById(R.id.imageView);
-        vidView = (VideoView) findViewById(R.id.vidView);
         imageView.setVisibility(View.GONE);
-        vidView.setVisibility(View.GONE);
         txtImageName = (EditText) findViewById(R.id.txtImageName);
     }
 
@@ -70,7 +67,6 @@ public class admin extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imgUri = data.getData();
-            vidView.setVisibility(View.GONE);
             imageView.setVisibility(View.VISIBLE);
 
             try {
@@ -82,14 +78,7 @@ public class admin extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        else if (requestCode == 2 && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            imgUri = data.getData();
-            imageView.setVisibility(View.GONE);
-            vidView.setVisibility(View.VISIBLE);
-            vidUri = data.getData();
-            vidView.setVideoURI(vidUri);
-            vidView.start();
-        }
+
     }
 
     public String getImageExt(Uri uri) {
@@ -152,11 +141,5 @@ public class admin extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please select image", Toast.LENGTH_SHORT).show();
         }
     }
-    public void btnBrowsev_Click(View view) {
-        Intent intent = new Intent();
-        intent.setType("video/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select video"), 2);
 
-    }
 }
